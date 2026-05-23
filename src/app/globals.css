@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --color-graphite-950: #0b0f17;
+  --color-graphite-900: #0e121b;
+  --color-graphite-850: #151b26;
+  --color-graphite-800: #1a2230;
+  --color-graphite-700: #263247;
+  --color-graphite-border: rgba(229, 231, 235, 0.08);
+  
+  --color-brand-blue: #2563eb;
+  --color-brand-emerald: #059669;
+  --color-brand-amber: #d97706;
+  --color-brand-gray: #4b5563;
+
+  --animate-sidebar-slide: slide 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-fade-in: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+  }
+}
+
+:root {
+  /* Light Theme (Warm Alabaster / Ivory) */
+  --background: #fafaf9;
+  --foreground: #1c1917;
+  --card: #ffffff;
+  --card-foreground: #1c1917;
+  --border: #e7e5e4;
+  --muted-text: #6b6661;
+  --accent-color: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.08);
+  --shadow-subtle: 0 1px 3px rgba(0,0,0,0.02), 0 8px 24px rgba(28,25,23,0.04);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Graphite Dark Theme (Quiet Premium Dark) */
+    --background: #0e121b;
+    --foreground: #f3f4f6;
+    --card: #151b26;
+    --card-foreground: #f3f4f6;
+    --border: rgba(255, 255, 255, 0.08);
+    --muted-text: #9ca3af;
+    --accent-color: #3b82f6;
+    --accent-soft: rgba(59, 130, 246, 0.08);
+    --shadow-subtle: 0 1px 3px rgba(0,0,0,0.2), 0 12px 32px rgba(0,0,0,0.4);
+  }
+}
+
+/* Force light or dark class overrides */
+.dark-theme {
+  --background: #0e121b;
+  --foreground: #f3f4f6;
+  --card: #151b26;
+  --card-foreground: #f3f4f6;
+  --border: rgba(255, 255, 255, 0.08);
+  --muted-text: #9ca3af;
+  --accent-color: #3b82f6;
+  --accent-soft: rgba(59, 130, 246, 0.08);
+  --shadow-subtle: 0 1px 3px rgba(0,0,0,0.2), 0 12px 32px rgba(0,0,0,0.4);
+}
+
+.light-theme {
+  --background: #fafaf9;
+  --foreground: #1c1917;
+  --card: #ffffff;
+  --card-foreground: #1c1917;
+  --border: #e7e5e4;
+  --muted-text: #6b6661;
+  --accent-color: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.08);
+  --shadow-subtle: 0 1px 3px rgba(0,0,0,0.02), 0 8px 24px rgba(28,25,23,0.04);
+}
+
+/* Base standards */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Minimalist container designs */
+.premium-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-subtle);
+  transition: border-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.premium-card-hover:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+}
+
+/* Scrollbar clean details */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.25);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* Magnetic button smooth highlights */
+.btn-magnetic {
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-magnetic:active {
+  transform: scale(0.98);
+}
+
+/* Typography styles pairing */
+.text-serif-display {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.text-muted {
+  color: var(--muted-text);
+}
